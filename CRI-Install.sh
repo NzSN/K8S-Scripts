@@ -42,4 +42,5 @@ cp ${WORKPATH}/cfgs/config.toml /etc/containerd/config.toml
 
 systemctl daemon-reload
 systemctl enable --now containerd
+systemctl start containerd
 
