@@ -12,3 +12,6 @@ $BASH ./CRI-Install.sh
 
 # Install Kubeadm
 $BASH ./Kubeadm-Install.sh
+
+# Install FLanneld
+$BASH ./CNI-Install.sh
