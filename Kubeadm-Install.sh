@@ -27,10 +27,17 @@ images=(
     etcd:3.5.3-0
 )
 
+TARGET_PREFIX=k8s.gcr.io
+
 ALIYUN_ADDR=registry.cn-hangzhou.aliyuncs.com/google_containers
 
 for image in ${images[@]}; do
     docker pull ${ALIYUN_ADDR}/$image
+    docker tag ${ALIYUN_ADDR}/$image ${TARGET_PREFIX}/$image
 done
 
+docker pull ${ALIYUN_ADDR}/pause:3.6
+docker tag  ${ALIYUN_ADDR}/pause:3.6 ${TARGET_PREFIX}/pause:3.6
+
 docker pull coredns/coredns:1.8.6
+docker tag  coredns/coredns:1.8.6 k8s.gcr.io/coredns/coredns:v1.8.6
